@@ -3974,7 +3974,7 @@ body{
         </div>
       </div>
       <div class="media-card video-card reveal from-right" data-embed="https://www.youtube-nocookie.com/embed/ZKq06Q_SkOQ?autoplay=1&start=1&rel=0" role="button" tabindex="0" aria-label="เล่นวิดีโอ Cross Super">
-        <img class="video-thumb" src="https://i.ytimg.com/vi/ZKq06Q_SkOQ/hqdefault.jpg" alt="Cross Super YouTube video">
+        <img class="video-thumb" src="https://i.ytimg.com/vi/ZKq06Q_SkOQ/hqdefault.jpg" onerror="this.onerror=null;this.src='./media-13.png'" alt="Cross Super YouTube video">
         <div class="video-overlay"></div>
         <div class="video-badge">1962 / Click to play</div>
         <div class="video-play" aria-hidden="true"></div>
@@ -5042,7 +5042,7 @@ body{
   const routeNames = ['home','about','products','product-laundry','product-softener','product-iron','product-dish','product-refresher','product-toilet','product-floor','reviews','stores','news','contact'];
 
   function showRoute(route, pushHash = true){
-    if(!routeNames.includes(route)) route = 'about';
+    if(!routeNames.includes(route)) route = 'home';
     document.documentElement.classList.add('route-switching');
     document.querySelectorAll('.site-page').forEach((page)=>{
       page.classList.toggle('active', page.id === 'page-' + route);
@@ -5072,7 +5072,7 @@ body{
   });
 
   window.addEventListener('popstate',()=>{
-    showRoute((location.hash || '#about').slice(1),false);
+    showRoute((location.hash || '#home').slice(1),false);
   });
 
   // ===== Homepage story motion =====
@@ -5128,7 +5128,7 @@ body{
   }, { threshold: .18, rootMargin: '0px 0px -8% 0px' });
   revealEls.forEach(el => io.observe(el));
 
-  showRoute((location.hash || '#about').slice(1), false);
+  showRoute((location.hash || '#home').slice(1), false);
   updateHomeStory();
 
   const loadInlineYouTube = (card) => {
